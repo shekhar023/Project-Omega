@@ -1,0 +1,445 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Omega Mac Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"Omega",
+				"Mac",
+				"Debug",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "Omega Mac Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"Omega",
+				"Mac",
+				"Debug",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"Omega Mac Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "Omega Mac Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"Omega",
+				"Mac",
+				"Debug",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "Omega Mac DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"Omega",
+				"Mac",
+				"DebugGame",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "Omega Mac DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"Omega",
+				"Mac",
+				"DebugGame",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"Omega Mac DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "Omega Mac DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"Omega",
+				"Mac",
+				"DebugGame",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "Omega Mac Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"Omega",
+				"Mac",
+				"Development",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "Omega Mac Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"Omega",
+				"Mac",
+				"Development",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"Omega Mac Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "Omega Mac Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"Omega",
+				"Mac",
+				"Development",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "Omega Mac Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"Omega",
+				"Mac",
+				"Shipping",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "Omega Mac Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"Omega",
+				"Mac",
+				"Shipping",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"Omega Mac Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "Omega Mac Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"Omega",
+				"Mac",
+				"Shipping",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "Omega Mac Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"Omega",
+				"Mac",
+				"Test",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "Omega Mac Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"Omega",
+				"Mac",
+				"Test",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"Omega Mac Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "Omega Mac Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"Omega",
+				"Mac",
+				"Test",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "OmegaEditor Mac Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"OmegaEditor",
+				"Mac",
+				"Debug",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "OmegaEditor Mac Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"OmegaEditor",
+				"Mac",
+				"Debug",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"OmegaEditor Mac Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "OmegaEditor Mac Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"OmegaEditor",
+				"Mac",
+				"Debug",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "OmegaEditor Mac DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"OmegaEditor",
+				"Mac",
+				"DebugGame",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "OmegaEditor Mac DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"OmegaEditor",
+				"Mac",
+				"DebugGame",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"OmegaEditor Mac DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "OmegaEditor Mac DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"OmegaEditor",
+				"Mac",
+				"DebugGame",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "OmegaEditor Mac Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"OmegaEditor",
+				"Mac",
+				"Development",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "OmegaEditor Mac Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"OmegaEditor",
+				"Mac",
+				"Development",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"OmegaEditor Mac Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		},
+		{
+			"label": "OmegaEditor Mac Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"OmegaEditor",
+				"Mac",
+				"Development",
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/anotherdumbgenius/UE_4.26"
+			}
+		}
+	]
+}

@@ -1,0 +1,104 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Omega (Debug)",
+			"request": "launch",
+			"preLaunchTask": "Omega Mac Debug Build",
+			"program": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Binaries/Mac/UE4-Mac-Debug.app/Contents/MacOS/UE4-Mac-Debug",
+			"args": [
+			],
+			"cwd": "/Users/anotherdumbgenius/UE_4.26",
+			"type": "lldb"
+		},
+		{
+			"name": "Omega (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "Omega Mac DebugGame Build",
+			"program": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Binaries/Mac/UE4-Mac-DebugGame.app/Contents/MacOS/UE4-Mac-DebugGame",
+			"args": [
+			],
+			"cwd": "/Users/anotherdumbgenius/UE_4.26",
+			"type": "lldb"
+		},
+		{
+			"name": "Omega (Development)",
+			"request": "launch",
+			"preLaunchTask": "Omega Mac Development Build",
+			"program": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Binaries/Mac/UE4.app/Contents/MacOS/UE4",
+			"args": [
+			],
+			"cwd": "/Users/anotherdumbgenius/UE_4.26",
+			"type": "lldb"
+		},
+		{
+			"name": "Omega (Shipping)",
+			"request": "launch",
+			"preLaunchTask": "Omega Mac Shipping Build",
+			"program": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Binaries/Mac/UE4-Mac-Shipping.app/Contents/MacOS/UE4-Mac-Shipping",
+			"args": [
+			],
+			"cwd": "/Users/anotherdumbgenius/UE_4.26",
+			"type": "lldb"
+		},
+		{
+			"name": "Omega (Test)",
+			"request": "launch",
+			"preLaunchTask": "Omega Mac Test Build",
+			"program": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Binaries/Mac/UE4-Mac-Test.app/Contents/MacOS/UE4-Mac-Test",
+			"args": [
+			],
+			"cwd": "/Users/anotherdumbgenius/UE_4.26",
+			"type": "lldb"
+		},
+		{
+			"name": "OmegaEditor (Debug)",
+			"request": "launch",
+			"preLaunchTask": "OmegaEditor Mac Debug Build",
+			"program": "/Users/anotherdumbgenius/UE_4.26/Engine/Binaries/Mac/UE4Editor-Mac-Debug.app/Contents/MacOS/UE4Editor-Mac-Debug",
+			"args": [
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject"
+			],
+			"cwd": "/Users/anotherdumbgenius/UE_4.26",
+			"type": "lldb"
+		},
+		{
+			"name": "OmegaEditor (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "OmegaEditor Mac DebugGame Build",
+			"program": "/Users/anotherdumbgenius/UE_4.26/Engine/Binaries/Mac/UE4Editor-Mac-DebugGame.app/Contents/MacOS/UE4Editor-Mac-DebugGame",
+			"args": [
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject"
+			],
+			"cwd": "/Users/anotherdumbgenius/UE_4.26",
+			"type": "lldb"
+		},
+		{
+			"name": "OmegaEditor (Development)",
+			"request": "launch",
+			"preLaunchTask": "OmegaEditor Mac Development Build",
+			"program": "/Users/anotherdumbgenius/UE_4.26/Engine/Binaries/Mac/UE4Editor.app/Contents/MacOS/UE4Editor",
+			"args": [
+				"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject"
+			],
+			"cwd": "/Users/anotherdumbgenius/UE_4.26",
+			"type": "lldb"
+		},
+		{
+			"name": "Generate Project Files",
+			"type": "mono",
+			"request": "launch",
+			"program": "/Users/anotherdumbgenius/UE_4.26/Engine/Binaries/DotNET/UnrealBuildTool.exe",
+			"console": "internalConsole",
+			"args": [
+				"-projectfiles",
+				"-vscode",
+				"-project=/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Omega.uproject",
+				"-game",
+				"-engine"
+			],
+			"internalConsoleOptions": "openOnSessionStart",
+			"cwd": "/Users/anotherdumbgenius/UE_4.26"
+		}
+	]
+}

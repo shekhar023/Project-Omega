@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "Omega",
+			"Path": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "OmegaEditor",
+			"Path": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/OmegaEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

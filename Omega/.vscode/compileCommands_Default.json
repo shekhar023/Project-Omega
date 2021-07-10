@@ -1,0 +1,157 @@
+[
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Omega.Build.cs",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Omega.cpp",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Omega.h",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/OmegaCharacter.cpp",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/OmegaCharacter.h",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/OmegaGameMode.cpp",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/OmegaGameMode.h",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Private/AnimInstances/SPlayerAnimInstance.cpp",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Private/Characters/SCharacter.cpp",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Private/Components/SHealthComponent.cpp",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Private/Components/SHitResultComponent.cpp",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Private/Components/SInterfaceComponent.cpp",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Private/Components/WeaponComponent.cpp",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Private/Controllers/SController.cpp",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Private/DataTables/PlayerAnimationsDataTable.cpp",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Private/DataTables/WeaponAttributes.cpp",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Private/DataTables/WeaponVFX.cpp",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Private/Interfaces/SInterface.cpp",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Private/Weapons/Weapon.cpp",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Public/AnimInstances/SPlayerAnimInstance.h",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Public/Characters/SCharacter.h",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Public/Components/SHealthComponent.h",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Public/Components/SHitResultComponent.h",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Public/Components/SInterfaceComponent.h",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Public/Components/WeaponComponent.h",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Public/Controllers/SController.h",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Public/DataTables/PlayerAnimationsDataTable.h",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Public/DataTables/WeaponAttributes.h",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Public/DataTables/WeaponVFX.h",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Public/Interfaces/SInterface.h",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	},
+	{
+		"file": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Public/Weapons/Weapon.h",
+		"command": "cl.exe @\"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default/Omega.171.rsp\"",
+		"directory": "/Users/anotherdumbgenius/UE_4.26/Engine/Source"
+	}
+]

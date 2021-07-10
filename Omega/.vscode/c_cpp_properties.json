@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "name": "OmegaEditor Editor Mac Development (Omega)",
+            "intelliSenseMode": "clang-x64",
+            "macFrameworkPath": [
+                "/System/Library/Frameworks",
+                "/Library/Frameworks"
+            ],
+            "compileCommands": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Omega.json",
+            "cStandard": "c17",
+            "cppStandard": "c++98"
+        },
+        {
+            "name": "Mac",
+            "intelliSenseMode": "clang-x64",
+            "macFrameworkPath": [
+                "/System/Library/Frameworks",
+                "/Library/Frameworks"
+            ],
+            "compileCommands": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default.json",
+            "cStandard": "c17",
+            "cppStandard": "c++98"
+        }
+    ],
+    "version": 4
+}

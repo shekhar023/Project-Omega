@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega/Omega.Build.cs",
+		"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/Omega.Target.cs",
+		"/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Source/OmegaEditor.Target.cs"
+	],
+	"EngineVersion": "4.26.2"
+}
