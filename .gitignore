@@ -105,3 +105,6 @@ DerivedDataCache/*
 *.exe
 *.out
 *.app
+
+#Visual Studio Code
+*.VC.db
