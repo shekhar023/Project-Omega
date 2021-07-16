@@ -3,6 +3,7 @@
 
 #include "DataTables/WeaponVFX.h"
 #include "Particles/ParticleSystemComponent.h"
+#include "Sound/SoundBase.h"
 #include "Kismet/GameplayStatics.h"
 
 FWeaponVFX::FWeaponVFX()

@@ -70,7 +70,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASCharacter); \
 
 #define Omega_Source_Omega_Public_Characters_SCharacter_h_15_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__HitSound() { return STRUCT_OFFSET(ASCharacter, HitSound); } \
-	FORCEINLINE static uint32 __PPO__DeathSound() { return STRUCT_OFFSET(ASCharacter, DeathSound); }
+	FORCEINLINE static uint32 __PPO__DeathSound() { return STRUCT_OFFSET(ASCharacter, DeathSound); } \
+	FORCEINLINE static uint32 __PPO__AnimInstance() { return STRUCT_OFFSET(ASCharacter, AnimInstance); }
 
 
 #define Omega_Source_Omega_Public_Characters_SCharacter_h_12_PROLOG

@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UObject;
 #ifdef OMEGA_SPlayerAnimInstance_generated_h
 #error "SPlayerAnimInstance.generated.h already included, missing '#pragma once' in SPlayerAnimInstance.h"
 #endif
@@ -16,13 +17,15 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define Omega_Source_Omega_Public_AnimInstances_SPlayerAnimInstance_h_15_SPARSE_DATA
 #define Omega_Source_Omega_Public_AnimInstances_SPlayerAnimInstance_h_15_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execSetWeaponEquipped); \
+	DECLARE_FUNCTION(execSwitchAnimLayer); \
+	DECLARE_FUNCTION(execSpeedAndDirectionCalculation); \
 	DECLARE_FUNCTION(execUpdateAnimationProperties);
 
 
 #define Omega_Source_Omega_Public_AnimInstances_SPlayerAnimInstance_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execSetWeaponEquipped); \
+	DECLARE_FUNCTION(execSwitchAnimLayer); \
+	DECLARE_FUNCTION(execSpeedAndDirectionCalculation); \
 	DECLARE_FUNCTION(execUpdateAnimationProperties);
 
 
@@ -70,7 +73,10 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(USPlayerAnimInstance); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(USPlayerAnimInstance)
 
 
-#define Omega_Source_Omega_Public_AnimInstances_SPlayerAnimInstance_h_15_PRIVATE_PROPERTY_OFFSET
+#define Omega_Source_Omega_Public_AnimInstances_SPlayerAnimInstance_h_15_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__Pawn() { return STRUCT_OFFSET(USPlayerAnimInstance, Pawn); }
+
+
 #define Omega_Source_Omega_Public_AnimInstances_SPlayerAnimInstance_h_12_PROLOG
 #define Omega_Source_Omega_Public_AnimInstances_SPlayerAnimInstance_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

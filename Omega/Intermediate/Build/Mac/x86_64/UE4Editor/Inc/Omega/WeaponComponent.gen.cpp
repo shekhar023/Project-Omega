@@ -24,6 +24,13 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 	ENGINE_API UClass* Z_Construct_UClass_UInputComponent_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 // End Cross Module References
+	DEFINE_FUNCTION(UWeaponComponent::execSwitchAnimLayer)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SwitchAnimLayer();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UWeaponComponent::execSwapToNewWeaponMesh)
 	{
 		P_FINISH;
@@ -45,6 +52,7 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "GetWeaponBasedOnType", &UWeaponComponent::execGetWeaponBasedOnType },
 			{ "SwapToNewWeaponMesh", &UWeaponComponent::execSwapToNewWeaponMesh },
+			{ "SwitchAnimLayer", &UWeaponComponent::execSwitchAnimLayer },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -112,6 +120,31 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UWeaponComponent_SwitchAnimLayer_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UWeaponComponent_SwitchAnimLayer_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Animation" },
+		{ "Comment", "/* Update the weapon mesh to the newly equipped weapon, this is triggered during an anim montage.\n        NOTE: Requires an AnimNotify created in the Equip animation to tell us when to swap the meshes. */" },
+		{ "ModuleRelativePath", "Public/Components/WeaponComponent.h" },
+		{ "ToolTip", "Update the weapon mesh to the newly equipped weapon, this is triggered during an anim montage.\n       NOTE: Requires an AnimNotify created in the Equip animation to tell us when to swap the meshes." },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UWeaponComponent_SwitchAnimLayer_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UWeaponComponent, nullptr, "SwitchAnimLayer", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UWeaponComponent_SwitchAnimLayer_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UWeaponComponent_SwitchAnimLayer_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UWeaponComponent_SwitchAnimLayer()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UWeaponComponent_SwitchAnimLayer_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_UWeaponComponent_NoRegister()
 	{
 		return UWeaponComponent::StaticClass();
@@ -152,25 +185,14 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_InputComponent;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bIsWeaponEquipped_MetaData[];
+#endif
+		static void NewProp_bIsWeaponEquipped_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bIsWeaponEquipped;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentWeapon_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CurrentWeapon;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PreviousWeapon_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PreviousWeapon;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PrimaryGun_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PrimaryGun;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SecondaryGun_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_SecondaryGun;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SideGun_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_SideGun;
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_WeaponsArray_Inner;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_WeaponsArray_MetaData[];
@@ -192,6 +214,7 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_UWeaponComponent_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UWeaponComponent_GetWeaponBasedOnType, "GetWeaponBasedOnType" }, // 3340148962
 		{ &Z_Construct_UFunction_UWeaponComponent_SwapToNewWeaponMesh, "SwapToNewWeaponMesh" }, // 1736824945
+		{ &Z_Construct_UFunction_UWeaponComponent_SwitchAnimLayer, "SwitchAnimLayer" }, // 3168818525
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UWeaponComponent_Statics::Class_MetaDataParams[] = {
@@ -251,6 +274,19 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_InputComponent = { "InputComponent", nullptr, (EPropertyFlags)0x0040000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UWeaponComponent, InputComponent), Z_Construct_UClass_UInputComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_InputComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_InputComponent_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UWeaponComponent_Statics::NewProp_bIsWeaponEquipped_MetaData[] = {
+		{ "Category", "Weapons" },
+		{ "Comment", "//Start Game with Weapon Equipped or Not. True for with and false without.\n//and to track weather the weapon is equipped or not\n" },
+		{ "ModuleRelativePath", "Public/Components/WeaponComponent.h" },
+		{ "ToolTip", "Start Game with Weapon Equipped or Not. True for with and false without.\nand to track weather the weapon is equipped or not" },
+	};
+#endif
+	void Z_Construct_UClass_UWeaponComponent_Statics::NewProp_bIsWeaponEquipped_SetBit(void* Obj)
+	{
+		((UWeaponComponent*)Obj)->bIsWeaponEquipped = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_bIsWeaponEquipped = { "bIsWeaponEquipped", nullptr, (EPropertyFlags)0x0020080000010001, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UWeaponComponent), &Z_Construct_UClass_UWeaponComponent_Statics::NewProp_bIsWeaponEquipped_SetBit, METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_bIsWeaponEquipped_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_bIsWeaponEquipped_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UWeaponComponent_Statics::NewProp_CurrentWeapon_MetaData[] = {
 		{ "Category", "WeaponComponent" },
 		{ "Comment", "/*Holds a reference to the currently bIsWeaponEquipped weapon*/" },
@@ -259,42 +295,6 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_CurrentWeapon = { "CurrentWeapon", nullptr, (EPropertyFlags)0x0020080000000014, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UWeaponComponent, CurrentWeapon), Z_Construct_UClass_AWeapon_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_CurrentWeapon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_CurrentWeapon_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UWeaponComponent_Statics::NewProp_PreviousWeapon_MetaData[] = {
-		{ "Category", "WeaponComponent" },
-		{ "Comment", "/*Holds a reference to the currently bIsWeaponEquipped weapon*/" },
-		{ "ModuleRelativePath", "Public/Components/WeaponComponent.h" },
-		{ "ToolTip", "Holds a reference to the currently bIsWeaponEquipped weapon" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_PreviousWeapon = { "PreviousWeapon", nullptr, (EPropertyFlags)0x0020080000000014, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UWeaponComponent, PreviousWeapon), Z_Construct_UClass_AWeapon_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_PreviousWeapon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_PreviousWeapon_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UWeaponComponent_Statics::NewProp_PrimaryGun_MetaData[] = {
-		{ "Category", "WeaponComponent" },
-		{ "Comment", "/*Holds a reference to the PrimaryGun*/" },
-		{ "ModuleRelativePath", "Public/Components/WeaponComponent.h" },
-		{ "ToolTip", "Holds a reference to the PrimaryGun" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_PrimaryGun = { "PrimaryGun", nullptr, (EPropertyFlags)0x0020080000000014, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UWeaponComponent, PrimaryGun), Z_Construct_UClass_AWeapon_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_PrimaryGun_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_PrimaryGun_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UWeaponComponent_Statics::NewProp_SecondaryGun_MetaData[] = {
-		{ "Category", "WeaponComponent" },
-		{ "Comment", "/*Holds a reference to the SecondaryGun*/" },
-		{ "ModuleRelativePath", "Public/Components/WeaponComponent.h" },
-		{ "ToolTip", "Holds a reference to the SecondaryGun" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_SecondaryGun = { "SecondaryGun", nullptr, (EPropertyFlags)0x0020080000000014, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UWeaponComponent, SecondaryGun), Z_Construct_UClass_AWeapon_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_SecondaryGun_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_SecondaryGun_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UWeaponComponent_Statics::NewProp_SideGun_MetaData[] = {
-		{ "Category", "WeaponComponent" },
-		{ "Comment", "/*Holds a reference to the SideGun*/" },
-		{ "ModuleRelativePath", "Public/Components/WeaponComponent.h" },
-		{ "ToolTip", "Holds a reference to the SideGun" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_SideGun = { "SideGun", nullptr, (EPropertyFlags)0x0020080000000014, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UWeaponComponent, SideGun), Z_Construct_UClass_AWeapon_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_SideGun_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_SideGun_MetaData)) };
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponsArray_Inner = { "WeaponsArray", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_AWeapon_NoRegister, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponsArray_MetaData[] = {
@@ -308,7 +308,9 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AvailableWeaponBlueprintReferences_MetaData[] = {
 		{ "Category", "Weapons" },
+		{ "Comment", "//Set limit of weapon inventory to 3.\n" },
 		{ "ModuleRelativePath", "Public/Components/WeaponComponent.h" },
+		{ "ToolTip", "Set limit of weapon inventory to 3." },
 	};
 #endif
 	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AvailableWeaponBlueprintReferences = { "AvailableWeaponBlueprintReferences", nullptr, (EPropertyFlags)0x0024080000010001, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UWeaponComponent, AvailableWeaponBlueprintReferences), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AvailableWeaponBlueprintReferences_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AvailableWeaponBlueprintReferences_MetaData)) };
@@ -320,11 +322,8 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_Character,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AnimInstance,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_InputComponent,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_bIsWeaponEquipped,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_CurrentWeapon,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_PreviousWeapon,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_PrimaryGun,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_SecondaryGun,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_SideGun,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponsArray_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponsArray,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AvailableWeaponBlueprintReferences_Inner,
@@ -357,7 +356,7 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UWeaponComponent, 1356678597);
+	IMPLEMENT_CLASS(UWeaponComponent, 3552697965);
 	template<> OMEGA_API UClass* StaticClass<UWeaponComponent>()
 	{
 		return UWeaponComponent::StaticClass();

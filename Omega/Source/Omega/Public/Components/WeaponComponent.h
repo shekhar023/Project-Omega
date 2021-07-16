@@ -57,54 +57,42 @@ private:
      UPROPERTY()
     class UInputComponent* InputComponent;  //already defined in scope AActor
 
-    void SetupPlayerInputComponent();
-    
-   
-    
-    float PlayPlayerAnimations(UAnimMontage* PlayerAnimMontage);
-
-    bool bIsWeaponEquipped;
-    
+    void SetupPlayerInputComponent();   
+     
     FTimerHandle WeaponEquip_TimerHandle;
     
     FTimerHandle WeaponDequip_TimerHandle;
+
+    FTimerHandle SwitchAnimLayer_TimerHandle;
  
     
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
     
+    //TO track the weapon weapon equipped
     int32 WeaponIndex = 0;
+
+     //Start Game with Weapon Equipped or Not. True for with and false without.
+     //and to track weather the weapon is equipped or not
+    UPROPERTY(EditDefaultsOnly, Category="Weapons")
+    bool bIsWeaponEquipped;
     
     /*Holds a reference to the currently bIsWeaponEquipped weapon*/
     UPROPERTY(BlueprintReadOnly)
     AWeapon* CurrentWeapon;
     
-    /*Holds a reference to the currently bIsWeaponEquipped weapon*/
-    UPROPERTY(BlueprintReadOnly)
-    AWeapon* PreviousWeapon;
-    
-    /*Holds a reference to the PrimaryGun*/
-    UPROPERTY(BlueprintReadOnly)
-    AWeapon* PrimaryGun;
-    
-    /*Holds a reference to the SecondaryGun*/
-    UPROPERTY(BlueprintReadOnly)
-    AWeapon* SecondaryGun;
-    
-    /*Holds a reference to the SideGun*/
-    UPROPERTY(BlueprintReadOnly)
-    AWeapon* SideGun;
-
     /*Weapons array. It's used to hold a reference to all available weapons*/
     UPROPERTY()
     TArray<AWeapon*> WeaponsArray;
     
+    //Set limit of weapon inventory to 3.
     UPROPERTY(EditDefaultsOnly, Category = "Weapons")
     TArray<TSubclassOf<AWeapon>> AvailableWeaponBlueprintReferences;
     
     UFUNCTION()
     AWeapon* GetWeaponBasedOnType(EWeaponType WeaponType);
+
     
 private:
     
@@ -113,26 +101,21 @@ private:
     void EquipNextWeapon();
     
     void EquipPreviousWeapon();
+
+    void EquipAndPlayAnimation_Character(FString AnimationKeyName);
     
-    void EquipPrimaryWeapon();
-    
-    void EquipSecondaryWeapon();
-    
-    void EquipSideWeapon();
-    
-    void Equip(bool bIsEquipped, FString AnimationKeyName);
-    
-    void DeEquip();
+    void DeEquip();    
 
 public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-    
     
     /* Update the weapon mesh to the newly equipped weapon, this is triggered during an anim montage.
         NOTE: Requires an AnimNotify created in the Equip animation to tell us when to swap the meshes. */
     UFUNCTION(BlueprintCallable, Category = "Animation")
     void SwapToNewWeaponMesh();
 
+      /* Update the weapon mesh to the newly equipped weapon, this is triggered during an anim montage.
+        NOTE: Requires an AnimNotify created in the Equip animation to tell us when to swap the meshes. */
+    UFUNCTION(BlueprintCallable, Category = "Animation")
+    void SwitchAnimLayer();
 		
 };

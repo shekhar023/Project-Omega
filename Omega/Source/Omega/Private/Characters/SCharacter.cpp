@@ -10,6 +10,7 @@
 #include "Controllers/SController.h"
 
 #include "Components/SInterfaceComponent.h"
+#include "AnimInstances/SPlayerAnimInstance.h"
 
 ASCharacter::ASCharacter()
 {
@@ -29,6 +30,8 @@ void ASCharacter::BeginPlay()
         HealthComp->OnDead.AddDynamic(this, &ASCharacter::OnPlayerDead);
         HealthComp->OnHit.AddDynamic(this, &ASCharacter::PlayHit);
     }
+
+    AnimInstance = Cast<USPlayerAnimInstance>(GetMesh()->GetAnimInstance());
 
 }
 
@@ -114,6 +117,25 @@ void ASCharacter::PlayHit(bool bIsDead)
     }
 }
 
+float ASCharacter::PlayAnimations(UAnimMontage* Animation)
+{
+    if(!Animation) return 0.0f;
+    
+    float MontageLength = 0.0f;
+    if(AnimInstance)
+    {
+        MontageLength = AnimInstance->Montage_Play(Animation);
+    }
+    return MontageLength;
+}
+
+void ASCharacter::SwitchAnimLayer(UClass* AnimClass, bool LinkLayer)
+{
+    if(!AnimClass) return;
+
+    AnimInstance->SwitchAnimLayer(AnimClass, LinkLayer);
+
+}
 void ASCharacter::PrintToScreen(FString Message, FColor Color)
 {
     if(ensure(GEngine))

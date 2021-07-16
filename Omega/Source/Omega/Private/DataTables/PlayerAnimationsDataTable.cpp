@@ -26,6 +26,11 @@ void FPlayerAnimations::UpdateStats(int32 DataTableRow)
                 }
             }
         }
+
+        if(!NewStats->PlayerInstanceSystem.IsNull())
+        {
+            PlayerInstanceClass = NewStats->PlayerInstanceSystem.LoadSynchronous();
+        }
     }
 }
 

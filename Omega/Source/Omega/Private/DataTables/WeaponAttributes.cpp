@@ -27,6 +27,7 @@ void FWeaponAttributes::UpdateStats(int32 DataTableRow)
         Range = NewStats->Range;
         Damage = NewStats->HeadShotDamageMultiplier;
         DamageTypeClass = NewStats->DamageTypeClass;
+        PlayerSpeedDivider = NewStats->PlayerSpeedDivider;
 
     }
 }

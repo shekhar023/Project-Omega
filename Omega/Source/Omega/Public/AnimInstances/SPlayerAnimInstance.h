@@ -13,21 +13,38 @@ UCLASS()
 class OMEGA_API USPlayerAnimInstance : public UAnimInstance
 {
 	GENERATED_BODY()
+
+private:
+
+    UPROPERTY()
+    APawn* Pawn;
+
+    //Flag to link or unlink the anim layers.
+    int32 bSwitchAnimLayer = 0;
     
 public:
     
+    UPROPERTY(BlueprintReadOnly, Category = SAnimInstance)
     class ASCharacter* Character;
     // Used by the animation blueprint to update the animation properties above
     // and decide what animations to play.
     UFUNCTION(BlueprintCallable, Category = "UpdateAnimationProperties")
     void UpdateAnimationProperties();
     
-    // Indicates whether the ZombieCharacter is idle or not.
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = SAnimInstance)
-    bool bEquipWeapon;
+    bool IsInAir;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = SAnimInstance)
+    float Speed;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = SAnimInstance)
+    float Direction;
     
     UFUNCTION()
-    void SetWeaponEquipped(bool WeaponEquipped);
+    void SpeedAndDirectionCalculation();
+
+    UFUNCTION()
+    void SwitchAnimLayer(UClass* AnimClass, bool SwitchToDefaultClass);
     
     
 };

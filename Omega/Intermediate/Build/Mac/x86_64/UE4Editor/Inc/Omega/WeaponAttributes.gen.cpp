@@ -92,6 +92,10 @@ static struct FScriptStruct_Omega_StaticRegisterNativesFWeaponAttributes
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_HeadShotDamageMultiplier;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayerSpeedDivider_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_PlayerSpeedDivider;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DamageTypeClass_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FClassPropertyParams NewProp_DamageTypeClass;
@@ -200,6 +204,13 @@ static struct FScriptStruct_Omega_StaticRegisterNativesFWeaponAttributes
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FWeaponAttributes_Statics::NewProp_HeadShotDamageMultiplier = { "HeadShotDamageMultiplier", nullptr, (EPropertyFlags)0x0010000000010001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FWeaponAttributes, HeadShotDamageMultiplier), METADATA_PARAMS(Z_Construct_UScriptStruct_FWeaponAttributes_Statics::NewProp_HeadShotDamageMultiplier_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FWeaponAttributes_Statics::NewProp_HeadShotDamageMultiplier_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FWeaponAttributes_Statics::NewProp_PlayerSpeedDivider_MetaData[] = {
+		{ "Category", "WeaponAttributes" },
+		{ "ModuleRelativePath", "Public/DataTables/WeaponAttributes.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FWeaponAttributes_Statics::NewProp_PlayerSpeedDivider = { "PlayerSpeedDivider", nullptr, (EPropertyFlags)0x0010000000010001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FWeaponAttributes, PlayerSpeedDivider), METADATA_PARAMS(Z_Construct_UScriptStruct_FWeaponAttributes_Statics::NewProp_PlayerSpeedDivider_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FWeaponAttributes_Statics::NewProp_PlayerSpeedDivider_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FWeaponAttributes_Statics::NewProp_DamageTypeClass_MetaData[] = {
 		{ "Category", "WeaponAttributes" },
 		{ "Comment", "/**\n     * @Param DamageTypeClass - Specifies DamageType of the weapon.\n     **/" },
@@ -219,6 +230,7 @@ static struct FScriptStruct_Omega_StaticRegisterNativesFWeaponAttributes
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponAttributes_Statics::NewProp_Range,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponAttributes_Statics::NewProp_Damage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponAttributes_Statics::NewProp_HeadShotDamageMultiplier,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponAttributes_Statics::NewProp_PlayerSpeedDivider,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponAttributes_Statics::NewProp_DamageTypeClass,
 	};
 	const UE4CodeGen_Private::FStructParams Z_Construct_UScriptStruct_FWeaponAttributes_Statics::ReturnStructParams = {
@@ -249,7 +261,7 @@ static struct FScriptStruct_Omega_StaticRegisterNativesFWeaponAttributes
 		}
 		return ReturnStruct;
 	}
-	uint32 Get_Z_Construct_UScriptStruct_FWeaponAttributes_Hash() { return 1261081022U; }
+	uint32 Get_Z_Construct_UScriptStruct_FWeaponAttributes_Hash() { return 3670620466U; }
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 #ifdef _MSC_VER
 #pragma warning (pop)

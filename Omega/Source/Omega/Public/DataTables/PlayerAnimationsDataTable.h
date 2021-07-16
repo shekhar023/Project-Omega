@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
+#include "AnimInstances/SPlayerAnimInstance.h"
 #include "PlayerAnimationsDataTable.generated.h"
 
 USTRUCT(BlueprintType, Blueprintable)
@@ -28,6 +29,13 @@ struct FPlayerAnimations : public FTableRowBase
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="PlayerAnimations")
 	TMap<FString, TSoftObjectPtr<UAnimMontage>> AnimSystem;
+
+	UPROPERTY()
+	TSubclassOf<UAnimInstance> PlayerInstanceClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="PlayerAnimations")
+	TSoftClassPtr<UAnimInstance> PlayerInstanceSystem;
+	
 };
 /**
  * 

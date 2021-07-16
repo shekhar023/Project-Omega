@@ -55,7 +55,7 @@ public:
 
     /*The Sound System (if any) associated with the specific weapon's level - leave this empty for melee weapons*/
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
-    TAssetPtr<USoundBase> MuzzleSoundSystem;
+    TSoftObjectPtr<USoundBase> MuzzleSoundSystem;
 
     /*The Sound System (if any) associated with the specific weapon's level - leave this empty for melee weapons*/
     UPROPERTY(EditAnywhere, BlueprintReadWrite)

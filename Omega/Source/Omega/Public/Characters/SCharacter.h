@@ -40,6 +40,9 @@ protected:
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = SFX)
     class USoundBase* DeathSound;
 
+    UPROPERTY()
+    class USPlayerAnimInstance* AnimInstance;
+
 public:
     /** Health Component for Health Managment */
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
@@ -52,5 +55,11 @@ public:
     /*Reference of UWeaponComponent*/
    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Components, meta = (AllowPrivateAccess = "true"))
    class UWeaponComponent* WeaponComp;
+   
+
+public:
+    float PlayAnimations(class UAnimMontage* Animation);
+
+    void SwitchAnimLayer(UClass* AnimClass, bool LinkLayer);
 
 };

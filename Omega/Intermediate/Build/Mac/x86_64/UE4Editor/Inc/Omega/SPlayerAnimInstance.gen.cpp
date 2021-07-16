@@ -18,13 +18,25 @@ void EmptyLinkFunctionForGeneratedCodeSPlayerAnimInstance() {}
 	OMEGA_API UClass* Z_Construct_UClass_USPlayerAnimInstance();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimInstance();
 	UPackage* Z_Construct_UPackage__Script_Omega();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UObject_NoRegister();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	ENGINE_API UClass* Z_Construct_UClass_APawn_NoRegister();
+	OMEGA_API UClass* Z_Construct_UClass_ASCharacter_NoRegister();
 // End Cross Module References
-	DEFINE_FUNCTION(USPlayerAnimInstance::execSetWeaponEquipped)
+	DEFINE_FUNCTION(USPlayerAnimInstance::execSwitchAnimLayer)
 	{
-		P_GET_UBOOL(Z_Param_WeaponEquipped);
+		P_GET_OBJECT(UClass,Z_Param_AnimClass);
+		P_GET_UBOOL(Z_Param_SwitchToDefaultClass);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->SetWeaponEquipped(Z_Param_WeaponEquipped);
+		P_THIS->SwitchAnimLayer(Z_Param_AnimClass,Z_Param_SwitchToDefaultClass);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(USPlayerAnimInstance::execSpeedAndDirectionCalculation)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SpeedAndDirectionCalculation();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(USPlayerAnimInstance::execUpdateAnimationProperties)
@@ -38,45 +50,72 @@ void EmptyLinkFunctionForGeneratedCodeSPlayerAnimInstance() {}
 	{
 		UClass* Class = USPlayerAnimInstance::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "SetWeaponEquipped", &USPlayerAnimInstance::execSetWeaponEquipped },
+			{ "SpeedAndDirectionCalculation", &USPlayerAnimInstance::execSpeedAndDirectionCalculation },
+			{ "SwitchAnimLayer", &USPlayerAnimInstance::execSwitchAnimLayer },
 			{ "UpdateAnimationProperties", &USPlayerAnimInstance::execUpdateAnimationProperties },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
-	struct Z_Construct_UFunction_USPlayerAnimInstance_SetWeaponEquipped_Statics
+	struct Z_Construct_UFunction_USPlayerAnimInstance_SpeedAndDirectionCalculation_Statics
 	{
-		struct SPlayerAnimInstance_eventSetWeaponEquipped_Parms
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_USPlayerAnimInstance_SpeedAndDirectionCalculation_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/AnimInstances/SPlayerAnimInstance.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_USPlayerAnimInstance_SpeedAndDirectionCalculation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_USPlayerAnimInstance, nullptr, "SpeedAndDirectionCalculation", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_USPlayerAnimInstance_SpeedAndDirectionCalculation_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_USPlayerAnimInstance_SpeedAndDirectionCalculation_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_USPlayerAnimInstance_SpeedAndDirectionCalculation()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
 		{
-			bool WeaponEquipped;
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_USPlayerAnimInstance_SpeedAndDirectionCalculation_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_USPlayerAnimInstance_SwitchAnimLayer_Statics
+	{
+		struct SPlayerAnimInstance_eventSwitchAnimLayer_Parms
+		{
+			UClass* AnimClass;
+			bool SwitchToDefaultClass;
 		};
-		static void NewProp_WeaponEquipped_SetBit(void* Obj);
-		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_WeaponEquipped;
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_AnimClass;
+		static void NewProp_SwitchToDefaultClass_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_SwitchToDefaultClass;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
-	void Z_Construct_UFunction_USPlayerAnimInstance_SetWeaponEquipped_Statics::NewProp_WeaponEquipped_SetBit(void* Obj)
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UFunction_USPlayerAnimInstance_SwitchAnimLayer_Statics::NewProp_AnimClass = { "AnimClass", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(SPlayerAnimInstance_eventSwitchAnimLayer_Parms, AnimClass), Z_Construct_UClass_UObject_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(nullptr, 0) };
+	void Z_Construct_UFunction_USPlayerAnimInstance_SwitchAnimLayer_Statics::NewProp_SwitchToDefaultClass_SetBit(void* Obj)
 	{
-		((SPlayerAnimInstance_eventSetWeaponEquipped_Parms*)Obj)->WeaponEquipped = 1;
+		((SPlayerAnimInstance_eventSwitchAnimLayer_Parms*)Obj)->SwitchToDefaultClass = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_USPlayerAnimInstance_SetWeaponEquipped_Statics::NewProp_WeaponEquipped = { "WeaponEquipped", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(SPlayerAnimInstance_eventSetWeaponEquipped_Parms), &Z_Construct_UFunction_USPlayerAnimInstance_SetWeaponEquipped_Statics::NewProp_WeaponEquipped_SetBit, METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_USPlayerAnimInstance_SetWeaponEquipped_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USPlayerAnimInstance_SetWeaponEquipped_Statics::NewProp_WeaponEquipped,
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_USPlayerAnimInstance_SwitchAnimLayer_Statics::NewProp_SwitchToDefaultClass = { "SwitchToDefaultClass", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(SPlayerAnimInstance_eventSwitchAnimLayer_Parms), &Z_Construct_UFunction_USPlayerAnimInstance_SwitchAnimLayer_Statics::NewProp_SwitchToDefaultClass_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_USPlayerAnimInstance_SwitchAnimLayer_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USPlayerAnimInstance_SwitchAnimLayer_Statics::NewProp_AnimClass,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USPlayerAnimInstance_SwitchAnimLayer_Statics::NewProp_SwitchToDefaultClass,
 	};
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_USPlayerAnimInstance_SetWeaponEquipped_Statics::Function_MetaDataParams[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_USPlayerAnimInstance_SwitchAnimLayer_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Public/AnimInstances/SPlayerAnimInstance.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_USPlayerAnimInstance_SetWeaponEquipped_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_USPlayerAnimInstance, nullptr, "SetWeaponEquipped", nullptr, nullptr, sizeof(SPlayerAnimInstance_eventSetWeaponEquipped_Parms), Z_Construct_UFunction_USPlayerAnimInstance_SetWeaponEquipped_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_USPlayerAnimInstance_SetWeaponEquipped_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_USPlayerAnimInstance_SetWeaponEquipped_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_USPlayerAnimInstance_SetWeaponEquipped_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_USPlayerAnimInstance_SetWeaponEquipped()
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_USPlayerAnimInstance_SwitchAnimLayer_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_USPlayerAnimInstance, nullptr, "SwitchAnimLayer", nullptr, nullptr, sizeof(SPlayerAnimInstance_eventSwitchAnimLayer_Parms), Z_Construct_UFunction_USPlayerAnimInstance_SwitchAnimLayer_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_USPlayerAnimInstance_SwitchAnimLayer_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_USPlayerAnimInstance_SwitchAnimLayer_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_USPlayerAnimInstance_SwitchAnimLayer_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_USPlayerAnimInstance_SwitchAnimLayer()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_USPlayerAnimInstance_SetWeaponEquipped_Statics::FuncParams);
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_USPlayerAnimInstance_SwitchAnimLayer_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -117,10 +156,26 @@ void EmptyLinkFunctionForGeneratedCodeSPlayerAnimInstance() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bEquipWeapon_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Pawn_MetaData[];
 #endif
-		static void NewProp_bEquipWeapon_SetBit(void* Obj);
-		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bEquipWeapon;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Pawn;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Character_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Character;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_IsInAir_MetaData[];
+#endif
+		static void NewProp_IsInAir_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_IsInAir;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Speed_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_Speed;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Direction_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_Direction;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -130,7 +185,8 @@ void EmptyLinkFunctionForGeneratedCodeSPlayerAnimInstance() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_Omega,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_USPlayerAnimInstance_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_USPlayerAnimInstance_SetWeaponEquipped, "SetWeaponEquipped" }, // 3506881736
+		{ &Z_Construct_UFunction_USPlayerAnimInstance_SpeedAndDirectionCalculation, "SpeedAndDirectionCalculation" }, // 3004257990
+		{ &Z_Construct_UFunction_USPlayerAnimInstance_SwitchAnimLayer, "SwitchAnimLayer" }, // 737115841
 		{ &Z_Construct_UFunction_USPlayerAnimInstance_UpdateAnimationProperties, "UpdateAnimationProperties" }, // 3169383463
 	};
 #if WITH_METADATA
@@ -142,20 +198,49 @@ void EmptyLinkFunctionForGeneratedCodeSPlayerAnimInstance() {}
 	};
 #endif
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_bEquipWeapon_MetaData[] = {
-		{ "Category", "SAnimInstance" },
-		{ "Comment", "// Indicates whether the ZombieCharacter is idle or not.\n" },
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Pawn_MetaData[] = {
 		{ "ModuleRelativePath", "Public/AnimInstances/SPlayerAnimInstance.h" },
-		{ "ToolTip", "Indicates whether the ZombieCharacter is idle or not." },
 	};
 #endif
-	void Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_bEquipWeapon_SetBit(void* Obj)
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Pawn = { "Pawn", nullptr, (EPropertyFlags)0x0040000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(USPlayerAnimInstance, Pawn), Z_Construct_UClass_APawn_NoRegister, METADATA_PARAMS(Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Pawn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Pawn_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Character_MetaData[] = {
+		{ "Category", "SAnimInstance" },
+		{ "ModuleRelativePath", "Public/AnimInstances/SPlayerAnimInstance.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Character = { "Character", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(USPlayerAnimInstance, Character), Z_Construct_UClass_ASCharacter_NoRegister, METADATA_PARAMS(Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Character_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Character_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_IsInAir_MetaData[] = {
+		{ "Category", "SAnimInstance" },
+		{ "ModuleRelativePath", "Public/AnimInstances/SPlayerAnimInstance.h" },
+	};
+#endif
+	void Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_IsInAir_SetBit(void* Obj)
 	{
-		((USPlayerAnimInstance*)Obj)->bEquipWeapon = 1;
+		((USPlayerAnimInstance*)Obj)->IsInAir = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_bEquipWeapon = { "bEquipWeapon", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(USPlayerAnimInstance), &Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_bEquipWeapon_SetBit, METADATA_PARAMS(Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_bEquipWeapon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_bEquipWeapon_MetaData)) };
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_IsInAir = { "IsInAir", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(USPlayerAnimInstance), &Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_IsInAir_SetBit, METADATA_PARAMS(Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_IsInAir_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_IsInAir_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Speed_MetaData[] = {
+		{ "Category", "SAnimInstance" },
+		{ "ModuleRelativePath", "Public/AnimInstances/SPlayerAnimInstance.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Speed = { "Speed", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(USPlayerAnimInstance, Speed), METADATA_PARAMS(Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Speed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Speed_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Direction_MetaData[] = {
+		{ "Category", "SAnimInstance" },
+		{ "ModuleRelativePath", "Public/AnimInstances/SPlayerAnimInstance.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Direction = { "Direction", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(USPlayerAnimInstance, Direction), METADATA_PARAMS(Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Direction_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Direction_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_USPlayerAnimInstance_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_bEquipWeapon,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Pawn,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Character,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_IsInAir,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Speed,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USPlayerAnimInstance_Statics::NewProp_Direction,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_USPlayerAnimInstance_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<USPlayerAnimInstance>::IsAbstract,
@@ -184,7 +269,7 @@ void EmptyLinkFunctionForGeneratedCodeSPlayerAnimInstance() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(USPlayerAnimInstance, 3357808444);
+	IMPLEMENT_CLASS(USPlayerAnimInstance, 1481679006);
 	template<> OMEGA_API UClass* StaticClass<USPlayerAnimInstance>()
 	{
 		return USPlayerAnimInstance::StaticClass();

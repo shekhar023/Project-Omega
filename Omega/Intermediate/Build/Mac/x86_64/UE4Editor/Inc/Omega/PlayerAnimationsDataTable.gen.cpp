@@ -17,6 +17,8 @@ void EmptyLinkFunctionForGeneratedCodePlayerAnimationsDataTable() {}
 	UPackage* Z_Construct_UPackage__Script_Omega();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTableRowBase();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UAnimInstance_NoRegister();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	OMEGA_API UClass* Z_Construct_UClass_UPlayerAnimationsDataTable_NoRegister();
 	OMEGA_API UClass* Z_Construct_UClass_UPlayerAnimationsDataTable();
 	ENGINE_API UClass* Z_Construct_UClass_UDataTable();
@@ -64,6 +66,14 @@ static struct FScriptStruct_Omega_StaticRegisterNativesFPlayerAnimations
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AnimSystem_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FMapPropertyParams NewProp_AnimSystem;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayerInstanceClass_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_PlayerInstanceClass;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayerInstanceSystem_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FSoftClassPropertyParams NewProp_PlayerInstanceSystem;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UE4CodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -95,6 +105,19 @@ static struct FScriptStruct_Omega_StaticRegisterNativesFPlayerAnimations
 	};
 #endif
 	const UE4CodeGen_Private::FMapPropertyParams Z_Construct_UScriptStruct_FPlayerAnimations_Statics::NewProp_AnimSystem = { "AnimSystem", nullptr, (EPropertyFlags)0x0014000000000005, UE4CodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FPlayerAnimations, AnimSystem), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UScriptStruct_FPlayerAnimations_Statics::NewProp_AnimSystem_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerAnimations_Statics::NewProp_AnimSystem_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FPlayerAnimations_Statics::NewProp_PlayerInstanceClass_MetaData[] = {
+		{ "ModuleRelativePath", "Public/DataTables/PlayerAnimationsDataTable.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UScriptStruct_FPlayerAnimations_Statics::NewProp_PlayerInstanceClass = { "PlayerInstanceClass", nullptr, (EPropertyFlags)0x0014000000000000, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FPlayerAnimations, PlayerInstanceClass), Z_Construct_UClass_UAnimInstance_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UScriptStruct_FPlayerAnimations_Statics::NewProp_PlayerInstanceClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerAnimations_Statics::NewProp_PlayerInstanceClass_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FPlayerAnimations_Statics::NewProp_PlayerInstanceSystem_MetaData[] = {
+		{ "Category", "PlayerAnimations" },
+		{ "ModuleRelativePath", "Public/DataTables/PlayerAnimationsDataTable.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FSoftClassPropertyParams Z_Construct_UScriptStruct_FPlayerAnimations_Statics::NewProp_PlayerInstanceSystem = { "PlayerInstanceSystem", nullptr, (EPropertyFlags)0x0014000000000005, UE4CodeGen_Private::EPropertyGenFlags::SoftClass, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FPlayerAnimations, PlayerInstanceSystem), Z_Construct_UClass_UAnimInstance_NoRegister, METADATA_PARAMS(Z_Construct_UScriptStruct_FPlayerAnimations_Statics::NewProp_PlayerInstanceSystem_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerAnimations_Statics::NewProp_PlayerInstanceSystem_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FPlayerAnimations_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerAnimations_Statics::NewProp_AnimationRef_ValueProp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerAnimations_Statics::NewProp_AnimationRef_Key_KeyProp,
@@ -102,6 +125,8 @@ static struct FScriptStruct_Omega_StaticRegisterNativesFPlayerAnimations
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerAnimations_Statics::NewProp_AnimSystem_ValueProp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerAnimations_Statics::NewProp_AnimSystem_Key_KeyProp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerAnimations_Statics::NewProp_AnimSystem,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerAnimations_Statics::NewProp_PlayerInstanceClass,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerAnimations_Statics::NewProp_PlayerInstanceSystem,
 	};
 	const UE4CodeGen_Private::FStructParams Z_Construct_UScriptStruct_FPlayerAnimations_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_Omega,
@@ -131,7 +156,7 @@ static struct FScriptStruct_Omega_StaticRegisterNativesFPlayerAnimations
 		}
 		return ReturnStruct;
 	}
-	uint32 Get_Z_Construct_UScriptStruct_FPlayerAnimations_Hash() { return 59996716U; }
+	uint32 Get_Z_Construct_UScriptStruct_FPlayerAnimations_Hash() { return 1932799021U; }
 	void UPlayerAnimationsDataTable::StaticRegisterNativesUPlayerAnimationsDataTable()
 	{
 	}

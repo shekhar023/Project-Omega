@@ -18,12 +18,14 @@ class AWeapon;
 #define Omega_Source_Omega_Public_Components_WeaponComponent_h_16_SPARSE_DATA
 #define Omega_Source_Omega_Public_Components_WeaponComponent_h_16_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execSwitchAnimLayer); \
 	DECLARE_FUNCTION(execSwapToNewWeaponMesh); \
 	DECLARE_FUNCTION(execGetWeaponBasedOnType);
 
 
 #define Omega_Source_Omega_Public_Components_WeaponComponent_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execSwitchAnimLayer); \
 	DECLARE_FUNCTION(execSwapToNewWeaponMesh); \
 	DECLARE_FUNCTION(execGetWeaponBasedOnType);
 
@@ -78,11 +80,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UWeaponComponent); \
 	FORCEINLINE static uint32 __PPO__Character() { return STRUCT_OFFSET(UWeaponComponent, Character); } \
 	FORCEINLINE static uint32 __PPO__AnimInstance() { return STRUCT_OFFSET(UWeaponComponent, AnimInstance); } \
 	FORCEINLINE static uint32 __PPO__InputComponent() { return STRUCT_OFFSET(UWeaponComponent, InputComponent); } \
+	FORCEINLINE static uint32 __PPO__bIsWeaponEquipped() { return STRUCT_OFFSET(UWeaponComponent, bIsWeaponEquipped); } \
 	FORCEINLINE static uint32 __PPO__CurrentWeapon() { return STRUCT_OFFSET(UWeaponComponent, CurrentWeapon); } \
-	FORCEINLINE static uint32 __PPO__PreviousWeapon() { return STRUCT_OFFSET(UWeaponComponent, PreviousWeapon); } \
-	FORCEINLINE static uint32 __PPO__PrimaryGun() { return STRUCT_OFFSET(UWeaponComponent, PrimaryGun); } \
-	FORCEINLINE static uint32 __PPO__SecondaryGun() { return STRUCT_OFFSET(UWeaponComponent, SecondaryGun); } \
-	FORCEINLINE static uint32 __PPO__SideGun() { return STRUCT_OFFSET(UWeaponComponent, SideGun); } \
 	FORCEINLINE static uint32 __PPO__WeaponsArray() { return STRUCT_OFFSET(UWeaponComponent, WeaponsArray); } \
 	FORCEINLINE static uint32 __PPO__AvailableWeaponBlueprintReferences() { return STRUCT_OFFSET(UWeaponComponent, AvailableWeaponBlueprintReferences); }
 

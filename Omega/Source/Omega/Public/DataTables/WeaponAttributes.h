@@ -88,6 +88,9 @@ struct FWeaponAttributes : public FTableRowBase
     UPROPERTY(EditDefaultsOnly, Category = WeaponAttributes)
     float HeadShotDamageMultiplier;
 
+    UPROPERTY(EditDefaultsOnly, Category = WeaponAttributes)
+    float PlayerSpeedDivider;
+
     /**
      * @Param DamageTypeClass - Specifies DamageType of the weapon.
      **/
