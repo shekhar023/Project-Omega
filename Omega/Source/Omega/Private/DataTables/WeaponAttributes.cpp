@@ -3,11 +3,13 @@
 
 #include "DataTables/WeaponAttributes.h"
 #include "Particles/ParticleSystemComponent.h"
+#include "Components/TimelineComponent.h"
 #include "Kismet/GameplayStatics.h"
 
 FWeaponAttributes::FWeaponAttributes()
 {
-    CurrentLevel = 1;
+    CurrentLevel = 1;        
+
 }
 void FWeaponAttributes::UpdateStats(int32 DataTableRow)
 {
@@ -27,8 +29,14 @@ void FWeaponAttributes::UpdateStats(int32 DataTableRow)
         Range = NewStats->Range;
         Damage = NewStats->HeadShotDamageMultiplier;
         DamageTypeClass = NewStats->DamageTypeClass;
-        PlayerSpeedDivider = NewStats->PlayerSpeedDivider;
+        PlayerSpeed = NewStats->PlayerSpeed;
+        Aim_FOV = NewStats->Aim_FOV;
 
+    }
+
+    if(!NewStats->AimCurveSystem.IsNull())
+    {
+       AimCurve = NewStats->AimCurveSystem.LoadSynchronous();
     }
 }
 

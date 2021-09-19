@@ -7,7 +7,7 @@
                 "/System/Library/Frameworks",
                 "/Library/Frameworks"
             ],
-            "compileCommands": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Omega.json",
+            "compileCommands": "/Users/anotherdumbgenius/Documents/GitHub/Project-Omega/Omega/.vscode/compileCommands_Omega.json",
             "cStandard": "c17",
             "cppStandard": "c++98"
         },
@@ -18,7 +18,7 @@
                 "/System/Library/Frameworks",
                 "/Library/Frameworks"
             ],
-            "compileCommands": "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/.vscode/compileCommands_Default.json",
+            "compileCommands": "/Users/anotherdumbgenius/Documents/GitHub/Project-Omega/Omega/.vscode/compileCommands_Default.json",
             "cStandard": "c17",
             "cppStandard": "c++98"
         }

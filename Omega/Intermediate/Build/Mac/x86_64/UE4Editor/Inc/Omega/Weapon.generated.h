@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define OMEGA_Weapon_generated_h
 
-#define Omega_Source_Omega_Public_Weapons_Weapon_h_43_SPARSE_DATA
-#define Omega_Source_Omega_Public_Weapons_Weapon_h_43_RPC_WRAPPERS
-#define Omega_Source_Omega_Public_Weapons_Weapon_h_43_RPC_WRAPPERS_NO_PURE_DECLS
-#define Omega_Source_Omega_Public_Weapons_Weapon_h_43_INCLASS_NO_PURE_DECLS \
+#define Omega_Source_Omega_Public_Weapons_Weapon_h_56_SPARSE_DATA
+#define Omega_Source_Omega_Public_Weapons_Weapon_h_56_RPC_WRAPPERS
+#define Omega_Source_Omega_Public_Weapons_Weapon_h_56_RPC_WRAPPERS_NO_PURE_DECLS
+#define Omega_Source_Omega_Public_Weapons_Weapon_h_56_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAWeapon(); \
 	friend struct Z_Construct_UClass_AWeapon_Statics; \
@@ -25,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(AWeapon)
 
 
-#define Omega_Source_Omega_Public_Weapons_Weapon_h_43_INCLASS \
+#define Omega_Source_Omega_Public_Weapons_Weapon_h_56_INCLASS \
 private: \
 	static void StaticRegisterNativesAWeapon(); \
 	friend struct Z_Construct_UClass_AWeapon_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(AWeapon)
 
 
-#define Omega_Source_Omega_Public_Weapons_Weapon_h_43_STANDARD_CONSTRUCTORS \
+#define Omega_Source_Omega_Public_Weapons_Weapon_h_56_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AWeapon(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AWeapon) \
@@ -47,7 +47,7 @@ private: \
 public:
 
 
-#define Omega_Source_Omega_Public_Weapons_Weapon_h_43_ENHANCED_CONSTRUCTORS \
+#define Omega_Source_Omega_Public_Weapons_Weapon_h_56_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AWeapon(AWeapon&&); \
@@ -58,7 +58,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AWeapon); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AWeapon)
 
 
-#define Omega_Source_Omega_Public_Weapons_Weapon_h_43_PRIVATE_PROPERTY_OFFSET \
+#define Omega_Source_Omega_Public_Weapons_Weapon_h_56_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__WeaponMesh() { return STRUCT_OFFSET(AWeapon, WeaponMesh); } \
 	FORCEINLINE static uint32 __PPO__WeaponAttributesDataTable() { return STRUCT_OFFSET(AWeapon, WeaponAttributesDataTable); } \
 	FORCEINLINE static uint32 __PPO__WeaponAttributesDataTableSystem() { return STRUCT_OFFSET(AWeapon, WeaponAttributesDataTableSystem); } \
@@ -75,27 +75,27 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AWeapon); \
 	FORCEINLINE static uint32 __PPO__StorageSlot() { return STRUCT_OFFSET(AWeapon, StorageSlot); }
 
 
-#define Omega_Source_Omega_Public_Weapons_Weapon_h_40_PROLOG
-#define Omega_Source_Omega_Public_Weapons_Weapon_h_43_GENERATED_BODY_LEGACY \
+#define Omega_Source_Omega_Public_Weapons_Weapon_h_53_PROLOG
+#define Omega_Source_Omega_Public_Weapons_Weapon_h_56_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Omega_Source_Omega_Public_Weapons_Weapon_h_43_PRIVATE_PROPERTY_OFFSET \
-	Omega_Source_Omega_Public_Weapons_Weapon_h_43_SPARSE_DATA \
-	Omega_Source_Omega_Public_Weapons_Weapon_h_43_RPC_WRAPPERS \
-	Omega_Source_Omega_Public_Weapons_Weapon_h_43_INCLASS \
-	Omega_Source_Omega_Public_Weapons_Weapon_h_43_STANDARD_CONSTRUCTORS \
+	Omega_Source_Omega_Public_Weapons_Weapon_h_56_PRIVATE_PROPERTY_OFFSET \
+	Omega_Source_Omega_Public_Weapons_Weapon_h_56_SPARSE_DATA \
+	Omega_Source_Omega_Public_Weapons_Weapon_h_56_RPC_WRAPPERS \
+	Omega_Source_Omega_Public_Weapons_Weapon_h_56_INCLASS \
+	Omega_Source_Omega_Public_Weapons_Weapon_h_56_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Omega_Source_Omega_Public_Weapons_Weapon_h_43_GENERATED_BODY \
+#define Omega_Source_Omega_Public_Weapons_Weapon_h_56_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Omega_Source_Omega_Public_Weapons_Weapon_h_43_PRIVATE_PROPERTY_OFFSET \
-	Omega_Source_Omega_Public_Weapons_Weapon_h_43_SPARSE_DATA \
-	Omega_Source_Omega_Public_Weapons_Weapon_h_43_RPC_WRAPPERS_NO_PURE_DECLS \
-	Omega_Source_Omega_Public_Weapons_Weapon_h_43_INCLASS_NO_PURE_DECLS \
-	Omega_Source_Omega_Public_Weapons_Weapon_h_43_ENHANCED_CONSTRUCTORS \
+	Omega_Source_Omega_Public_Weapons_Weapon_h_56_PRIVATE_PROPERTY_OFFSET \
+	Omega_Source_Omega_Public_Weapons_Weapon_h_56_SPARSE_DATA \
+	Omega_Source_Omega_Public_Weapons_Weapon_h_56_RPC_WRAPPERS_NO_PURE_DECLS \
+	Omega_Source_Omega_Public_Weapons_Weapon_h_56_INCLASS_NO_PURE_DECLS \
+	Omega_Source_Omega_Public_Weapons_Weapon_h_56_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -118,7 +118,13 @@ template<> OMEGA_API UEnum* StaticEnum<EInventorySlot>();
 #define FOREACH_ENUM_EWEAPONTYPE(op) \
 	op(EWeaponType::Knife) \
 	op(EWeaponType::Shotgun) \
-	op(EWeaponType::Rifle) 
+	op(EWeaponType::Rifle) \
+	op(EWeaponType::AssaultRifle) \
+	op(EWeaponType::Handgun) \
+	op(EWeaponType::SMG) \
+	op(EWeaponType::RocketLauncher) \
+	op(EWeaponType::GrenadeLauncher) \
+	op(EWeaponType::Projectile) 
 
 enum class EWeaponType : uint8;
 template<> OMEGA_API UEnum* StaticEnum<EWeaponType>();

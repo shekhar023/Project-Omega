@@ -1,5 +1,5 @@
 -include "/Users/anotherdumbgenius/UE_4.26/Engine/Intermediate/Build/Mac/x86_64/UE4Editor/Development/AllDesktopTargetPlatform/Definitions.AllDesktopTargetPlatform.h"
--include "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Intermediate/Build/Mac/x86_64/OmegaEditor/Development/Engine/SharedPCH.Engine.ShadowErrors.h"
+-include "/Users/anotherdumbgenius/Documents/GitHub/Project-Omega/Omega/Intermediate/Build/Mac/x86_64/OmegaEditor/Development/Engine/SharedPCH.Engine.ShadowErrors.h"
 -I"/Users/anotherdumbgenius/UE_4.26/Engine/Source"
 -I"/Users/anotherdumbgenius/UE_4.26/Engine/Source/Developer/AllDesktopTargetPlatform/Private"
 -I"/Users/anotherdumbgenius/UE_4.26/Engine/Intermediate/Build/Mac/x86_64/UE4Editor/Inc/Core"

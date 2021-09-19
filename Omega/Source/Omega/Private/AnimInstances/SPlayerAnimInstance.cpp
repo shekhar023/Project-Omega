@@ -22,6 +22,8 @@ void USPlayerAnimInstance::UpdateAnimationProperties()
 
     IsInAir = Pawn->GetMovementComponent()->IsFalling();
     SpeedAndDirectionCalculation();
+
+    bIsAiming = Character->bIsAiming;
 }
 
 void USPlayerAnimInstance::SpeedAndDirectionCalculation()
@@ -30,6 +32,11 @@ void USPlayerAnimInstance::SpeedAndDirectionCalculation()
     auto PawnRotation = Pawn->GetActorRotation();
     Speed = PawnVelocity.Size();
     Direction = CalculateDirection(PawnVelocity, PawnRotation);
+}
+void USPlayerAnimInstance::SetAim(bool IsAiming)
+{
+    //UE_LOG(LogTemp, Error, TEXT("Set Aim function is called in SplayerAnimInstance"));
+    //bIsAiming = IsAiming;
 }
 
 void USPlayerAnimInstance::SwitchAnimLayer(UClass* AnimClass, bool LinkLayer)
@@ -51,7 +58,7 @@ void USPlayerAnimInstance::SwitchAnimLayer(UClass* AnimClass, bool LinkLayer)
     ///Toggle b/w linking a layer and unlinking a layer
     switch (bSwitchAnimLayer)
     {
-        case 1: 
+        case 1:
             LinkAnimClassLayers(AnimClass);
             break; 
         case 0:

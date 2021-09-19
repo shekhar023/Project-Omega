@@ -17,6 +17,7 @@ class UObject;
 #define Omega_Source_Omega_Public_AnimInstances_SPlayerAnimInstance_h_15_SPARSE_DATA
 #define Omega_Source_Omega_Public_AnimInstances_SPlayerAnimInstance_h_15_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execSetAim); \
 	DECLARE_FUNCTION(execSwitchAnimLayer); \
 	DECLARE_FUNCTION(execSpeedAndDirectionCalculation); \
 	DECLARE_FUNCTION(execUpdateAnimationProperties);
@@ -24,6 +25,7 @@ class UObject;
 
 #define Omega_Source_Omega_Public_AnimInstances_SPlayerAnimInstance_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execSetAim); \
 	DECLARE_FUNCTION(execSwitchAnimLayer); \
 	DECLARE_FUNCTION(execSpeedAndDirectionCalculation); \
 	DECLARE_FUNCTION(execUpdateAnimationProperties);

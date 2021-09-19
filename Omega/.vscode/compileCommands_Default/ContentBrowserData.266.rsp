@@ -1,5 +1,5 @@
 -include "/Users/anotherdumbgenius/UE_4.26/Engine/Intermediate/Build/Mac/x86_64/UE4Editor/Development/ContentBrowserData/Definitions.ContentBrowserData.h"
--include "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Intermediate/Build/Mac/x86_64/OmegaEditor/Development/UnrealEd/SharedPCH.UnrealEd.ShadowErrors.h"
+-include "/Users/anotherdumbgenius/Documents/GitHub/Project-Omega/Omega/Intermediate/Build/Mac/x86_64/OmegaEditor/Development/UnrealEd/SharedPCH.UnrealEd.ShadowErrors.h"
 -I"/Users/anotherdumbgenius/UE_4.26/Engine/Source"
 -I"/Users/anotherdumbgenius/UE_4.26/Engine/Source/Editor/ContentBrowserData/Private"
 -I"/Users/anotherdumbgenius/UE_4.26/Engine/Intermediate/Build/Mac/x86_64/UE4Editor/Inc/Slate"

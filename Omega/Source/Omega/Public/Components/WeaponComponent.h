@@ -33,6 +33,15 @@ private:
 
     void Reload();
 
+    float Default_FOV;
+
+    UPROPERTY()
+	class UTimelineComponent* AimTimeline;
+
+    UPROPERTY()
+    class UCurveFloat* AimCurve;
+
+protected:
     UPROPERTY(VisibleDefaultsOnly, Category = "Animations Keys List");
     FString WeaponEquipKeyName;
 
@@ -64,6 +73,12 @@ private:
     FTimerHandle WeaponDequip_TimerHandle;
 
     FTimerHandle SwitchAnimLayer_TimerHandle;
+
+    float DefaultCharacterSpeed;
+
+    bool bIsAiming;
+
+    bool bIsReloading;
  
     
 protected:
@@ -104,7 +119,10 @@ private:
 
     void EquipAndPlayAnimation_Character(FString AnimationKeyName);
     
-    void DeEquip();    
+    void DeEquip();   
+
+    UFUNCTION()
+    void SetCameraFOV();
 
 public:	
     
@@ -117,5 +135,7 @@ public:
         NOTE: Requires an AnimNotify created in the Equip animation to tell us when to swap the meshes. */
     UFUNCTION(BlueprintCallable, Category = "Animation")
     void SwitchAnimLayer();
+
+    virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 		
 };

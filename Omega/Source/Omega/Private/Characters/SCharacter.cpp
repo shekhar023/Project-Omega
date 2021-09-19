@@ -7,10 +7,13 @@
 #include "Components/SHealthComponent.h"
 #include "Components/WeaponComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "Controllers/SController.h"
+#include "Camera/CameraComponent.h"
 
 #include "Components/SInterfaceComponent.h"
 #include "AnimInstances/SPlayerAnimInstance.h"
+
 
 ASCharacter::ASCharacter()
 {
@@ -117,6 +120,28 @@ void ASCharacter::PlayHit(bool bIsDead)
     }
 }
 
+void ASCharacter::ChangeToCameraDirectionAndFOV()
+{
+    FRotator CameraRotation = GetFollowCamera()->GetComponentRotation();
+
+    FRotator ActorRotation = GetActorRotation();
+
+    float Rotation = UKismetMathLibrary::FInterpTo(CameraRotation.Yaw, ActorRotation.Yaw, 0.0f, .2f);
+
+    FRotator NewRotation;
+    NewRotation.Pitch = 0.0f;
+    NewRotation.Yaw = Rotation;
+    NewRotation.Roll = 0.0f;
+    SetActorRotation(NewRotation, ETeleportType::None);
+
+}
+
+void ASCharacter::SetCharacterSpeed(float NewSpeed)
+{
+    UCharacterMovementComponent* CharacterComp = Cast<UCharacterMovementComponent>(GetMovementComponent());
+    CharacterComp->MaxWalkSpeed = NewSpeed;
+}
+
 float ASCharacter::PlayAnimations(UAnimMontage* Animation)
 {
     if(!Animation) return 0.0f;
@@ -132,10 +157,16 @@ float ASCharacter::PlayAnimations(UAnimMontage* Animation)
 void ASCharacter::SwitchAnimLayer(UClass* AnimClass, bool LinkLayer)
 {
     if(!AnimClass) return;
-
+  
     AnimInstance->SwitchAnimLayer(AnimClass, LinkLayer);
 
 }
+
+void ASCharacter::SetAimStatus(bool IsAiming)
+{
+    bIsAiming = IsAiming;
+}
+
 void ASCharacter::PrintToScreen(FString Message, FColor Color)
 {
     if(ensure(GEngine))

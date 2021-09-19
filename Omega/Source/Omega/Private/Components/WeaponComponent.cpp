@@ -8,9 +8,9 @@
 
 #include "Components/InputComponent.h"
 #include "Components/TimelineComponent.h"
+
 #include "Characters/SCharacter.h"
 #include "Weapons/Weapon.h"
-
 #include "AnimInstances/SPlayerAnimInstance.h"
 
 // Sets default values for this component's properties
@@ -22,6 +22,9 @@ UWeaponComponent::UWeaponComponent()
 
     //to track weather the weapon is equipped or not
     bIsWeaponEquipped = false;
+    bIsAiming = false;
+    bIsReloading = false;
+    DefaultCharacterSpeed = 0.0f;
 
     WeaponEquipKeyName = FString("WeaponEquipAnimation");
     WeaponDeEquipKeyName = FString("WeaponDeEquipAnimation");
@@ -30,32 +33,80 @@ UWeaponComponent::UWeaponComponent()
 	// ...
 }
 
+void UWeaponComponent::WeaponEquipToggle()
+{
+    if(!CurrentWeapon) return;
+
+    bIsWeaponEquipped = !bIsWeaponEquipped;
+    if(bIsWeaponEquipped)
+    {
+        EquipAndPlayAnimation_Character(WeaponEquipKeyName);
+    }
+    else if(!bIsWeaponEquipped)
+    {
+        EquipAndPlayAnimation_Character(WeaponDeEquipKeyName);
+    }
+}
+
 void UWeaponComponent::WeaponStartAttack()
 {
-    
+    if(!bIsWeaponEquipped)
+	return;
+
+    if(bIsWeaponEquipped && CurrentWeapon && bIsAiming)
+	{
+		CurrentWeapon->WeaponStartAttack();
+	}
 }
 
 void UWeaponComponent::WeaponStopAttack()
 {
-    
+    if(CurrentWeapon && !bIsAiming)
+	CurrentWeapon->WeaponStopAttack();
+}
+
+void UWeaponComponent::SetCameraFOV()
+{
+    if(!Character && !AimCurve) return;
+   
+    if(!bIsWeaponEquipped)
+    {
+        StopAim();
+        return;
+    }
+
+    float TimelineValue = AimTimeline->GetPlaybackPosition();
+	auto AimCurveFloatValue = 1.0f * AimCurve->GetFloatValue(TimelineValue);
+
+    float New_FOV = CurrentWeapon->CurrentWeaponAttributes.Aim_FOV;
+    float CurrentFOV = FMath::Lerp(Default_FOV, New_FOV, AimCurveFloatValue);
+    Character-> GetFollowCamera()->SetFieldOfView(CurrentFOV);
 }
 
 void UWeaponComponent::Aim()
 {
-     UAnimMontage* Animation = CurrentWeapon->PlayerAnimations.AnimationRef.FindRef(WeaponAimKeyName);
-    EquipAndPlayAnimation_Character(WeaponAimKeyName);
+    AimTimeline->PlayFromStart();
+    Character->ChangeToCameraDirectionAndFOV();
+    Character->SetCharacterSpeed(CurrentWeapon->CurrentWeaponAttributes.PlayerSpeed);
+    Character->SetAimStatus(true);
+    Character->bUseControllerRotationYaw = 1;
 }
 
 void UWeaponComponent::StopAim()
 {
-    
+    AimTimeline->Reverse();
+    Character->SetCharacterSpeed(DefaultCharacterSpeed);
+    Character->SetAimStatus(false);
+    Character->bUseControllerRotationYaw = 0;
 }
 
 void UWeaponComponent::Reload()
 {
-    
+     if(bIsWeaponEquipped && CurrentWeapon)
+	{
+		CurrentWeapon->Reload();
+	}
 }
-
 
 ///Setup All the inputs
 void UWeaponComponent::SetupPlayerInputComponent()
@@ -72,6 +123,7 @@ void UWeaponComponent::SetupPlayerInputComponent()
         InputComponent->BindAction("Equip/Dequip", IE_Pressed, this, &UWeaponComponent::WeaponEquipToggle);
     
         InputComponent->BindAction("Reload", IE_Pressed, this, &UWeaponComponent::Reload);
+        
         
         InputComponent->BindAction("NextWeapon", IE_Pressed, this, &UWeaponComponent::EquipNextWeapon);
         InputComponent->BindAction("PreviousWeapon", IE_Pressed, this, &UWeaponComponent::EquipPreviousWeapon);
@@ -93,8 +145,21 @@ void UWeaponComponent::BeginPlay()
     {
         //Check and fill Inventory if any
         SpawnInventory();
+        DefaultCharacterSpeed = Character->GetMovementComponent()->GetMaxSpeed();
+    }
+    AimCurve = CurrentWeapon->CurrentWeaponAttributes.AimCurve;
+    if(AimCurve)
+    {
+        FOnTimelineFloat AimCurveTimeline;
+        AimCurveTimeline.BindUFunction(this, FName("SetCameraFOV"));
+
+		AimTimeline = NewObject<UTimelineComponent>(this, FName("AimAnimation"));
+        AimTimeline->AddInterpFloat(AimCurve, AimCurveTimeline);
+		AimTimeline->RegisterComponent();
+        Default_FOV = Character->GetFollowCamera()->FieldOfView;
     }
 }
+
 ///SpawnDefault Inventory at Begin Play
 void UWeaponComponent::SpawnInventory()
 {
@@ -126,9 +191,8 @@ void UWeaponComponent::SpawnInventory()
 ///Play playeranimations and change state of the player in the Player AnimInstace
 void UWeaponComponent::EquipAndPlayAnimation_Character(FString AnimationKeyName)
 {
-    ///TODO: change this function for animation only as there is no use for redundancy and
-    /// and switch of weapon meshes is done via animNotifies as well as animblueprints
-     ///fetch animation reference via AnimationKeyName
+    ///switch of/to weapon meshes is done via animNotifies as well as animblueprints from the animation itself
+    ///fetch animation reference via AnimationKeyName
     UAnimMontage* Animation = CurrentWeapon->PlayerAnimations.AnimationRef.FindRef(AnimationKeyName);
     if(Animation)
     { 
@@ -172,15 +236,18 @@ void UWeaponComponent::SwapToNewWeaponMesh()
 void UWeaponComponent::DeEquip()
 {
     //Attach Weapon to Holster
-    CurrentWeapon->AttachToComponent(Character->GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, CurrentWeapon->GetStorageSlotName(CurrentWeapon->GetStorageSlot()));
-    
+    CurrentWeapon->AttachToComponent(Character->GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, CurrentWeapon->GetStorageSlotName(CurrentWeapon->GetStorageSlot())); 
 }
 
 ///Toggle to next weapon if available in inventory
 void UWeaponComponent::EquipNextWeapon()
 {
     //Toggle Only if Current equipped with a weapon
-    if(!bIsWeaponEquipped) return;
+    if(!bIsWeaponEquipped || WeaponsArray.Num() == 0)
+    {
+        UE_LOG(LogTemp, Warning, TEXT("bIsWeaponEquipped is true and WeaponArray is > 0 in EquipNext Weapon"));
+        return;
+    } 
     
     //increment the weapon index(tracks the weapons stored in an array.
     ++WeaponIndex;
@@ -220,7 +287,11 @@ void UWeaponComponent::EquipNextWeapon()
 void UWeaponComponent::EquipPreviousWeapon()
 {
     //Toggle Only if Current equipped with a weapon
-    if(!bIsWeaponEquipped) return;
+    if(!bIsWeaponEquipped || WeaponsArray.Num() == 0)
+    {
+        UE_LOG(LogTemp, Warning, TEXT("bIsWeaponEquipped is false and WeaponArray is > 0 in EquipPrevious Weapon"));
+        return;
+    } 
     
     //increment the weapon index(tracks the weapons stored in an array.
     --WeaponIndex;
@@ -269,4 +340,16 @@ AWeapon* UWeaponComponent::GetWeaponBasedOnType(EWeaponType WeaponType)
     //didn't find a valid reference
     return nullptr;
 }
+
+
+void UWeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+{
+	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	if(AimTimeline)
+	{
+		AimTimeline->TickComponent(DeltaTime, ELevelTick::LEVELTICK_TimeOnly, NULL);
+	}
+}
+
+
 

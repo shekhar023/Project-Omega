@@ -19,6 +19,8 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 	UPackage* Z_Construct_UPackage__Script_Omega();
 	OMEGA_API UEnum* Z_Construct_UEnum_Omega_EWeaponType();
 	OMEGA_API UClass* Z_Construct_UClass_AWeapon_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UTimelineComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UCurveFloat_NoRegister();
 	OMEGA_API UClass* Z_Construct_UClass_ASCharacter_NoRegister();
 	OMEGA_API UClass* Z_Construct_UClass_USPlayerAnimInstance_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UInputComponent_NoRegister();
@@ -38,6 +40,13 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 		P_THIS->SwapToNewWeaponMesh();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UWeaponComponent::execSetCameraFOV)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetCameraFOV();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UWeaponComponent::execGetWeaponBasedOnType)
 	{
 		P_GET_ENUM(EWeaponType,Z_Param_WeaponType);
@@ -51,6 +60,7 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 		UClass* Class = UWeaponComponent::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "GetWeaponBasedOnType", &UWeaponComponent::execGetWeaponBasedOnType },
+			{ "SetCameraFOV", &UWeaponComponent::execSetCameraFOV },
 			{ "SwapToNewWeaponMesh", &UWeaponComponent::execSwapToNewWeaponMesh },
 			{ "SwitchAnimLayer", &UWeaponComponent::execSwitchAnimLayer },
 		};
@@ -92,6 +102,28 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UWeaponComponent_GetWeaponBasedOnType_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UWeaponComponent_SetCameraFOV_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UWeaponComponent_SetCameraFOV_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/Components/WeaponComponent.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UWeaponComponent_SetCameraFOV_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UWeaponComponent, nullptr, "SetCameraFOV", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UWeaponComponent_SetCameraFOV_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UWeaponComponent_SetCameraFOV_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UWeaponComponent_SetCameraFOV()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UWeaponComponent_SetCameraFOV_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -157,6 +189,14 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AimTimeline_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_AimTimeline;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AimCurve_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_AimCurve;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_WeaponEquipKeyName_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FStrPropertyParams NewProp_WeaponEquipKeyName;
@@ -213,6 +253,7 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UWeaponComponent_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UWeaponComponent_GetWeaponBasedOnType, "GetWeaponBasedOnType" }, // 3340148962
+		{ &Z_Construct_UFunction_UWeaponComponent_SetCameraFOV, "SetCameraFOV" }, // 2659207582
 		{ &Z_Construct_UFunction_UWeaponComponent_SwapToNewWeaponMesh, "SwapToNewWeaponMesh" }, // 1736824945
 		{ &Z_Construct_UFunction_UWeaponComponent_SwitchAnimLayer, "SwitchAnimLayer" }, // 3168818525
 	};
@@ -225,33 +266,46 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 	};
 #endif
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AimTimeline_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/Components/WeaponComponent.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AimTimeline = { "AimTimeline", nullptr, (EPropertyFlags)0x0040000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UWeaponComponent, AimTimeline), Z_Construct_UClass_UTimelineComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AimTimeline_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AimTimeline_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AimCurve_MetaData[] = {
+		{ "ModuleRelativePath", "Public/Components/WeaponComponent.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AimCurve = { "AimCurve", nullptr, (EPropertyFlags)0x0040000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UWeaponComponent, AimCurve), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AimCurve_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AimCurve_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponEquipKeyName_MetaData[] = {
 		{ "Category", "Animations Keys List" },
 		{ "ModuleRelativePath", "Public/Components/WeaponComponent.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponEquipKeyName = { "WeaponEquipKeyName", nullptr, (EPropertyFlags)0x0040000000030001, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UWeaponComponent, WeaponEquipKeyName), METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponEquipKeyName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponEquipKeyName_MetaData)) };
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponEquipKeyName = { "WeaponEquipKeyName", nullptr, (EPropertyFlags)0x0020080000030001, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UWeaponComponent, WeaponEquipKeyName), METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponEquipKeyName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponEquipKeyName_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponDeEquipKeyName_MetaData[] = {
 		{ "Category", "Animations Keys List" },
 		{ "ModuleRelativePath", "Public/Components/WeaponComponent.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponDeEquipKeyName = { "WeaponDeEquipKeyName", nullptr, (EPropertyFlags)0x0040000000030001, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UWeaponComponent, WeaponDeEquipKeyName), METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponDeEquipKeyName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponDeEquipKeyName_MetaData)) };
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponDeEquipKeyName = { "WeaponDeEquipKeyName", nullptr, (EPropertyFlags)0x0020080000030001, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UWeaponComponent, WeaponDeEquipKeyName), METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponDeEquipKeyName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponDeEquipKeyName_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponAttackKeyName_MetaData[] = {
 		{ "Category", "Animations Keys List" },
 		{ "ModuleRelativePath", "Public/Components/WeaponComponent.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponAttackKeyName = { "WeaponAttackKeyName", nullptr, (EPropertyFlags)0x0040000000030001, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UWeaponComponent, WeaponAttackKeyName), METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponAttackKeyName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponAttackKeyName_MetaData)) };
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponAttackKeyName = { "WeaponAttackKeyName", nullptr, (EPropertyFlags)0x0020080000030001, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UWeaponComponent, WeaponAttackKeyName), METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponAttackKeyName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponAttackKeyName_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponAimKeyName_MetaData[] = {
 		{ "Category", "Animations Keys List" },
 		{ "ModuleRelativePath", "Public/Components/WeaponComponent.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponAimKeyName = { "WeaponAimKeyName", nullptr, (EPropertyFlags)0x0040000000030001, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UWeaponComponent, WeaponAimKeyName), METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponAimKeyName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponAimKeyName_MetaData)) };
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponAimKeyName = { "WeaponAimKeyName", nullptr, (EPropertyFlags)0x0020080000030001, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UWeaponComponent, WeaponAimKeyName), METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponAimKeyName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponAimKeyName_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UWeaponComponent_Statics::NewProp_Character_MetaData[] = {
 		{ "ModuleRelativePath", "Public/Components/WeaponComponent.h" },
@@ -315,6 +369,8 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 #endif
 	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AvailableWeaponBlueprintReferences = { "AvailableWeaponBlueprintReferences", nullptr, (EPropertyFlags)0x0024080000010001, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UWeaponComponent, AvailableWeaponBlueprintReferences), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AvailableWeaponBlueprintReferences_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AvailableWeaponBlueprintReferences_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UWeaponComponent_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AimTimeline,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_AimCurve,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponEquipKeyName,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponDeEquipKeyName,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponAttackKeyName,
@@ -356,7 +412,7 @@ void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UWeaponComponent, 3552697965);
+	IMPLEMENT_CLASS(UWeaponComponent, 2015064015);
 	template<> OMEGA_API UClass* StaticClass<UWeaponComponent>()
 	{
 		return UWeaponComponent::StaticClass();

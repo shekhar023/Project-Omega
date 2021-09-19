@@ -18,6 +18,8 @@ AWeapon::AWeapon()
     PrimaryWeaponAttachPoint = TEXT("PrimaryWeaponAttachPoint");
     SecondaryWeaponAttachPoint = TEXT("SecondaryWeaponAttachPoint");
     SideWeaponAttachPoint = TEXT("SideWeaponWeaponAttachPoint");
+
+    bIsMelee = false;
     
 }
 
@@ -46,6 +48,34 @@ void AWeapon::BeginPlay()
 
 }
 
+//-------------------------------------------------------------------------------------
+//Fetches the total damage amount of the weapon based on its level
+//-------------------------------------------------------------------------------------
+float AWeapon::GetTotalDamageAmount()
+{
+	if(WeaponAttributesDataTable)
+	{
+		return CurrentWeaponAttributes.Damage;
+	}
+	return 0;
+}
+
+void AWeapon::WeaponStartAttack() 
+{
+	
+}
+
+void AWeapon::WeaponStopAttack() 
+{
+
+}
+
+void AWeapon::Reload()
+{
+	
+}
+
+
 //MARK: Return Functions
 FName AWeapon::GetStorageSlotName(EInventorySlot Slot) const
 {
@@ -64,6 +94,14 @@ FName AWeapon::GetStorageSlotName(EInventorySlot Slot) const
             // Not implemented.
             return "";
     }
+}
+
+void AWeapon::PrintToScreen(FString Message, FColor Color)
+{
+	if(ensure(GEngine))
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 2.5f, Color, Message);
+	}
 }
 
 

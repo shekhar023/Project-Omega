@@ -108,7 +108,7 @@ void EmptyLinkFunctionForGeneratedCodeWeapon() {}
 		return EWeaponType_StaticEnum();
 	}
 	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_EWeaponType(EWeaponType_StaticEnum, TEXT("/Script/Omega"), TEXT("EWeaponType"), false, nullptr, nullptr);
-	uint32 Get_Z_Construct_UEnum_Omega_EWeaponType_Hash() { return 1165834375U; }
+	uint32 Get_Z_Construct_UEnum_Omega_EWeaponType_Hash() { return 221854163U; }
 	UEnum* Z_Construct_UEnum_Omega_EWeaponType()
 	{
 #if WITH_HOT_RELOAD
@@ -123,14 +123,26 @@ void EmptyLinkFunctionForGeneratedCodeWeapon() {}
 				{ "EWeaponType::Knife", (int64)EWeaponType::Knife },
 				{ "EWeaponType::Shotgun", (int64)EWeaponType::Shotgun },
 				{ "EWeaponType::Rifle", (int64)EWeaponType::Rifle },
+				{ "EWeaponType::AssaultRifle", (int64)EWeaponType::AssaultRifle },
+				{ "EWeaponType::Handgun", (int64)EWeaponType::Handgun },
+				{ "EWeaponType::SMG", (int64)EWeaponType::SMG },
+				{ "EWeaponType::RocketLauncher", (int64)EWeaponType::RocketLauncher },
+				{ "EWeaponType::GrenadeLauncher", (int64)EWeaponType::GrenadeLauncher },
+				{ "EWeaponType::Projectile", (int64)EWeaponType::Projectile },
 			};
 #if WITH_METADATA
 			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "AssaultRifle.Name", "EWeaponType::AssaultRifle" },
 				{ "BlueprintType", "true" },
+				{ "GrenadeLauncher.Name", "EWeaponType::GrenadeLauncher" },
+				{ "Handgun.Name", "EWeaponType::Handgun" },
 				{ "Knife.Name", "EWeaponType::Knife" },
 				{ "ModuleRelativePath", "Public/Weapons/Weapon.h" },
+				{ "Projectile.Name", "EWeaponType::Projectile" },
 				{ "Rifle.Name", "EWeaponType::Rifle" },
+				{ "RocketLauncher.Name", "EWeaponType::RocketLauncher" },
 				{ "Shotgun.Name", "EWeaponType::Shotgun" },
+				{ "SMG.Name", "EWeaponType::SMG" },
 			};
 #endif
 			static const UE4CodeGen_Private::FEnumParams EnumParams = {
@@ -233,6 +245,16 @@ void EmptyLinkFunctionForGeneratedCodeWeapon() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayerAnimations_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_PlayerAnimations;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bIsRaycasting_MetaData[];
+#endif
+		static void NewProp_bIsRaycasting_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bIsRaycasting;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bIsMelee_MetaData[];
+#endif
+		static void NewProp_bIsMelee_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bIsMelee;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -388,6 +410,32 @@ void EmptyLinkFunctionForGeneratedCodeWeapon() {}
 	};
 #endif
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AWeapon_Statics::NewProp_PlayerAnimations = { "PlayerAnimations", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AWeapon, PlayerAnimations), Z_Construct_UScriptStruct_FPlayerAnimations, METADATA_PARAMS(Z_Construct_UClass_AWeapon_Statics::NewProp_PlayerAnimations_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AWeapon_Statics::NewProp_PlayerAnimations_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWeapon_Statics::NewProp_bIsRaycasting_MetaData[] = {
+		{ "Category", "Weapon" },
+		{ "Comment", "/*True if the weapon is raycasting*/" },
+		{ "ModuleRelativePath", "Public/Weapons/Weapon.h" },
+		{ "ToolTip", "True if the weapon is raycasting" },
+	};
+#endif
+	void Z_Construct_UClass_AWeapon_Statics::NewProp_bIsRaycasting_SetBit(void* Obj)
+	{
+		((AWeapon*)Obj)->bIsRaycasting = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AWeapon_Statics::NewProp_bIsRaycasting = { "bIsRaycasting", nullptr, (EPropertyFlags)0x0010000000010001, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AWeapon), &Z_Construct_UClass_AWeapon_Statics::NewProp_bIsRaycasting_SetBit, METADATA_PARAMS(Z_Construct_UClass_AWeapon_Statics::NewProp_bIsRaycasting_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AWeapon_Statics::NewProp_bIsRaycasting_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWeapon_Statics::NewProp_bIsMelee_MetaData[] = {
+		{ "Category", "Weapon" },
+		{ "Comment", "/*True if the weapon is melee*/" },
+		{ "ModuleRelativePath", "Public/Weapons/Weapon.h" },
+		{ "ToolTip", "True if the weapon is melee" },
+	};
+#endif
+	void Z_Construct_UClass_AWeapon_Statics::NewProp_bIsMelee_SetBit(void* Obj)
+	{
+		((AWeapon*)Obj)->bIsMelee = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AWeapon_Statics::NewProp_bIsMelee = { "bIsMelee", nullptr, (EPropertyFlags)0x0010000000010001, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AWeapon), &Z_Construct_UClass_AWeapon_Statics::NewProp_bIsMelee_SetBit, METADATA_PARAMS(Z_Construct_UClass_AWeapon_Statics::NewProp_bIsMelee_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AWeapon_Statics::NewProp_bIsMelee_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AWeapon_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeapon_Statics::NewProp_WeaponMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeapon_Statics::NewProp_WeaponAttributesDataTable,
@@ -408,6 +456,8 @@ void EmptyLinkFunctionForGeneratedCodeWeapon() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeapon_Statics::NewProp_CurrentWeaponAttributes,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeapon_Statics::NewProp_CurrentWeaponVFX,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeapon_Statics::NewProp_PlayerAnimations,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeapon_Statics::NewProp_bIsRaycasting,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeapon_Statics::NewProp_bIsMelee,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AWeapon_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AWeapon>::IsAbstract,
@@ -436,7 +486,7 @@ void EmptyLinkFunctionForGeneratedCodeWeapon() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AWeapon, 1594476113);
+	IMPLEMENT_CLASS(AWeapon, 543256201);
 	template<> OMEGA_API UClass* StaticClass<AWeapon>()
 	{
 		return AWeapon::StaticClass();

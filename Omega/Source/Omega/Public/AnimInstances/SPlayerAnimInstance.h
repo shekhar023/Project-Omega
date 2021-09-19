@@ -39,12 +39,18 @@ public:
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = SAnimInstance)
     float Direction;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = SAnimInstance)
+    bool bIsAiming;
     
     UFUNCTION()
     void SpeedAndDirectionCalculation();
 
     UFUNCTION()
     void SwitchAnimLayer(UClass* AnimClass, bool SwitchToDefaultClass);
+
+    UFUNCTION()
+    void SetAim(bool IsAiming);
     
     
 };

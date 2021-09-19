@@ -1,5 +1,5 @@
 -include "/Users/anotherdumbgenius/UE_4.26/Engine/Plugins/Runtime/ProceduralMeshComponent/Intermediate/Build/Mac/x86_64/UE4Editor/Development/ProceduralMeshComponentEditor/Definitions.ProceduralMeshComponentEditor.h"
--include "/Users/anotherdumbgenius/Documents/Unreal Projects/Omega/Intermediate/Build/Mac/x86_64/OmegaEditor/Development/UnrealEd/SharedPCH.UnrealEd.ShadowErrors.h"
+-include "/Users/anotherdumbgenius/Documents/GitHub/Project-Omega/Omega/Intermediate/Build/Mac/x86_64/OmegaEditor/Development/UnrealEd/SharedPCH.UnrealEd.ShadowErrors.h"
 -I"/Users/anotherdumbgenius/UE_4.26/Engine/Source"
 -I"/Users/anotherdumbgenius/UE_4.26/Engine/Plugins/Runtime/ProceduralMeshComponent/Source/ProceduralMeshComponentEditor/Private"
 -I"/Users/anotherdumbgenius/UE_4.26/Engine/Plugins/Runtime/ProceduralMeshComponent/Intermediate/Build/Mac/x86_64/UE4Editor/Inc/ProceduralMeshComponentEditor"

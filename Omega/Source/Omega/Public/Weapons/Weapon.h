@@ -4,9 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+
 #include "DataTables/WeaponAttributes.h"
 #include "DataTables/WeaponVFX.h"
+#include "Characters/SCharacter.h"
+#include "Kismet/GameplayStatics.h"
+#include "Perception/AISense_Hearing.h"
 #include "DataTables/PlayerAnimationsDataTable.h"
+#include "Particles/ParticleSystemComponent.h"
+#include "Omega/Omega.h"
+
 #include "Weapon.generated.h"
 
 class UAnimMontage;
@@ -16,7 +23,13 @@ enum class EWeaponType : uint8
 {
     Knife,
     Shotgun,
-    Rifle
+    Rifle,
+    AssaultRifle,
+    Handgun,
+    SMG,
+    RocketLauncher,
+    GrenadeLauncher,
+    Projectile,
 };
 
 //MARK:ENUM for sockets
@@ -126,15 +139,29 @@ public:
     /*Instance of weapon PlayerAnimations*/
     UPROPERTY(BlueprintReadOnly);
     FPlayerAnimations PlayerAnimations;
-    
+
 public:
     
     /*True if the weapon is raycasting*/
+    UPROPERTY(EditDefaultsOnly, Category="Weapon")
     bool bIsRaycasting;
+
+    /*True if the weapon is melee*/
+	UPROPERTY(EditDefaultsOnly, Category="Weapon")
+	bool bIsMelee;
     
     /*Enable this in order for the weapon to raycast for possible hits*/
     void SetRaycasting(bool RaycastStatus) { bIsRaycasting = RaycastStatus; }
 
+    float GetTotalDamageAmount();
+
+public:
+
+    virtual void WeaponStartAttack();
+
+	virtual void WeaponStopAttack();
+
+    virtual void Reload();
 
 public:	
 	// Called every frame
@@ -153,5 +180,10 @@ public:
     
     /*Returns the weapon type*/
     EWeaponType GetWeaponType() { return WeaponType; }
+
+    /**
+	 * Add Debug Message to screen
+	 **/
+	void PrintToScreen(FString Message, FColor Color);
 
 };

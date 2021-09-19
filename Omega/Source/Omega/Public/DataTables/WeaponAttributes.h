@@ -89,13 +89,23 @@ struct FWeaponAttributes : public FTableRowBase
     float HeadShotDamageMultiplier;
 
     UPROPERTY(EditDefaultsOnly, Category = WeaponAttributes)
-    float PlayerSpeedDivider;
+    float PlayerSpeed;
 
     /**
      * @Param DamageTypeClass - Specifies DamageType of the weapon.
      **/
     UPROPERTY(EditDefaultsOnly, Category = WeaponAttributes)
     TSubclassOf<UDamageType> DamageTypeClass;
+
+    UPROPERTY()
+    class UCurveFloat* AimCurve;
+
+    //New field of view of the camera
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "CameraAim", meta = (AllowPrivateAccess = "true"))
+	float Aim_FOV;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="CameraAim")
+	TAssetPtr<UCurveFloat> AimCurveSystem;
 
 };
 

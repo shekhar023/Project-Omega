@@ -15,9 +15,7 @@ class OMEGA_API ASCharacter : public AOmegaCharacter
 	GENERATED_BODY()
     
     ASCharacter();
-    
-    void PrintToScreen(FString Message, FColor Color);
-    
+
     void SetRagdollPhysics();
     
     void ApplyPhysicsOnRagdoll();
@@ -40,9 +38,6 @@ protected:
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = SFX)
     class USoundBase* DeathSound;
 
-    UPROPERTY()
-    class USPlayerAnimInstance* AnimInstance;
-
 public:
     /** Health Component for Health Managment */
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
@@ -55,11 +50,24 @@ public:
     /*Reference of UWeaponComponent*/
    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Components, meta = (AllowPrivateAccess = "true"))
    class UWeaponComponent* WeaponComp;
+
+    UPROPERTY()
+    class USPlayerAnimInstance* AnimInstance;
+
+    bool bIsAiming = false;
    
 
 public:
     float PlayAnimations(class UAnimMontage* Animation);
 
     void SwitchAnimLayer(UClass* AnimClass, bool LinkLayer);
+
+    void ChangeToCameraDirectionAndFOV();
+
+    void  SetCharacterSpeed(float NewSpeed);
+
+    void SetAimStatus(bool IsAiming);
+
+    void PrintToScreen(FString Message, FColor Color);
 
 };

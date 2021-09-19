@@ -20,6 +20,7 @@ class AWeapon;
  \
 	DECLARE_FUNCTION(execSwitchAnimLayer); \
 	DECLARE_FUNCTION(execSwapToNewWeaponMesh); \
+	DECLARE_FUNCTION(execSetCameraFOV); \
 	DECLARE_FUNCTION(execGetWeaponBasedOnType);
 
 
@@ -27,6 +28,7 @@ class AWeapon;
  \
 	DECLARE_FUNCTION(execSwitchAnimLayer); \
 	DECLARE_FUNCTION(execSwapToNewWeaponMesh); \
+	DECLARE_FUNCTION(execSetCameraFOV); \
 	DECLARE_FUNCTION(execGetWeaponBasedOnType);
 
 
@@ -73,6 +75,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UWeaponComponent); \
 
 
 #define Omega_Source_Omega_Public_Components_WeaponComponent_h_16_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__AimTimeline() { return STRUCT_OFFSET(UWeaponComponent, AimTimeline); } \
+	FORCEINLINE static uint32 __PPO__AimCurve() { return STRUCT_OFFSET(UWeaponComponent, AimCurve); } \
 	FORCEINLINE static uint32 __PPO__WeaponEquipKeyName() { return STRUCT_OFFSET(UWeaponComponent, WeaponEquipKeyName); } \
 	FORCEINLINE static uint32 __PPO__WeaponDeEquipKeyName() { return STRUCT_OFFSET(UWeaponComponent, WeaponDeEquipKeyName); } \
 	FORCEINLINE static uint32 __PPO__WeaponAttackKeyName() { return STRUCT_OFFSET(UWeaponComponent, WeaponAttackKeyName); } \
